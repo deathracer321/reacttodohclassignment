@@ -1,12 +1,12 @@
 import "./App.css";
 import TodoList from "./components/TodoList";
 import AddTodo from "./components/AddTodo";
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
 export const MyContext = createContext();
 
 function App() {
-  const [todoList, setTodoList] = useState();
+  const [todoList, setTodoList] = useState([]);
 
   return (
     <MyContext.Provider value={{ todoList, setTodoList }}>
@@ -17,6 +17,7 @@ function App() {
         <br />
         <hr />
         <AddTodo />
+        <br />
         <TodoList />
       </div>
     </MyContext.Provider>

@@ -20,19 +20,13 @@ function AddTodo() {
       };
     });
   };
+
   const onSubmitHandler = (e) => {
-    if (
-      allFormValues.addTodoValue === "" ||
-      allFormValues.selectedOption === "select" ||
-      allFormValues.inputDate === ""
-    ) {
-      e.preventDefault();
-      alert("Please select");
-    } else {
-      e.preventDefault();
-      alert("todo Added successfully");
-      setTodoList(allFormValues);
-    }
+    e.preventDefault();
+
+    setTodoList((prev) => {
+      return [...prev, { ...allFormValues }];
+    });
   };
 
   return (
@@ -45,6 +39,7 @@ function AddTodo() {
             </td>
             <td>
               <input
+                required
                 placeholder="Type Something..."
                 type="text"
                 value={allFormValues?.addTodoValue}
@@ -66,8 +61,9 @@ function AddTodo() {
                 name="selectedOption"
                 id="selectedOption"
                 onChange={onChangeHandler}
+                required
               >
-                <option>select</option>
+                <option value="">select</option>
                 <option value="Professional">Professional</option>
                 <option value="Personal">Personal</option>
               </select>
@@ -81,6 +77,7 @@ function AddTodo() {
             </td>
             <td>
               <input
+                required
                 type="date"
                 value={allFormValues?.inputDate}
                 onChange={onChangeHandler}
