@@ -1,0 +1,53 @@
+table,
+th,
+td {
+  border: 1px solid;
+  padding: 20px;
+}
+
+td {
+  width: 50%;
+}
+
+.addTodo-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.addTodo-submit {
+  width: 50%;
+  text-align: center;
+  height: 30px;
+  border-radius: 30px;
+}
+.addTodo-submit:hover {
+  background-color: #3cbc8d;
+  color: white;
+}
+
+#addTodoValue {
+  background-color: #3cbc8d;
+  color: white;
+  padding: 16px 20px;
+  border-radius: 30px;
+  width: 80%;
+}
+select {
+  width: 80%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+
+  background-color: #3cbc8d;
+  color: white;
+}
+#inputDate {
+  width: 80%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+
+  background-color: #3cbc8d;
+  color: white;
+}
