@@ -34,10 +34,10 @@ function AddTodo() {
       <table className="addTodo-table">
         <tbody>
           <tr>
-            <td>
+            <td className="addTodo-td">
               <label htmlFor="addTodoValue">What are you up to ? </label>
             </td>
-            <td>
+            <td className="addTodo-td">
               <input
                 required
                 placeholder="Type Something..."
@@ -51,12 +51,12 @@ function AddTodo() {
           </tr>
 
           <tr>
-            <td>
+            <td className="addTodo-td">
               <label htmlFor="selectedOption">
                 Is it Professional Or Personal ?
               </label>
             </td>
-            <td>
+            <td className="addTodo-td">
               <select
                 name="selectedOption"
                 id="selectedOption"
@@ -70,12 +70,12 @@ function AddTodo() {
             </td>
           </tr>
           <tr>
-            <td>
+            <td className="addTodo-td">
               <label htmlFor="inputDate">
                 When are you planning to complete it ?
               </label>
             </td>
-            <td>
+            <td className="addTodo-td">
               <input
                 required
                 type="date"

@@ -1,6 +1,6 @@
-table,
-th,
-td {
+.addTodo-table,
+.addTodo-th,
+.addTodo-td {
   border: 1px solid;
   padding: 20px;
 }

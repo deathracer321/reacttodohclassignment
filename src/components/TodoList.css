@@ -1,0 +1,32 @@
+.todoList-content {
+  overflow-x: auto;
+}
+.todoList-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  overflow-x: auto;
+}
+
+.todoList-table th {
+  text-align: center;
+  padding: 8px;
+  border: 1px solid black;
+}
+.todoList-table td {
+  text-align: center;
+  padding: 8px;
+  border: 1px solid black;
+}
+
+.todoList-deleteButton {
+  width: 100%;
+  text-align: center;
+  height: 30px;
+  border-radius: 30px;
+}
+.todoList-deleteButton:hover {
+  background-color: #3cbc8d;
+  color: white;
+}
