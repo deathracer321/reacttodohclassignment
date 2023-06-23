@@ -61,6 +61,7 @@ function AddTodo() {
                 name="selectedOption"
                 id="selectedOption"
                 onChange={onChangeHandler}
+                className="addtodo-select"
                 required
               >
                 <option value="">select</option>

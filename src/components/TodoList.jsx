@@ -11,61 +11,82 @@ function TodoList() {
     setTodoList(newArr);
   };
 
-  const onStatusChangeHandler = (event, index) => {
+  const onChangeHandler = (event, index) => {
     let newArr = [...todoList];
-    console.log(event.target.value);
-    console.log(index);
-    newArr[index].status = event.target.value;
+
+    if (event.target.name === "status") {
+      newArr[index].status = event.target.value;
+    } else if (event.target.name === "inputDate") {
+      newArr[index].inputDate = event.target.value;
+    }
+
     setTodoList(newArr);
   };
 
   return (
     <div className="todoList-content">
-      <table className="todoList-table">
-        <tbody>
-          <tr>
-            <th>Number</th>
-            <th>TODO</th>
-            <th>PER/PRO</th>
-            <th>Aimed Date</th>
-            <th>Status</th>
-            <th>Delete</th>
-          </tr>
-          {todoList?.map((eachTodo, ind) => {
-            return (
-              <tr key={ind}>
-                <td>{ind + 1}</td>
-                <td>{eachTodo.addTodoValue}</td>
-                <td>{eachTodo.selectedOption}</td>
-                <td>{eachTodo.inputDate}</td>
-                <td>
-                  {eachTodo.status}
-                  <br></br>
-                  <select
-                    name="selectedOption"
-                    id="selectedOption"
-                    onChange={(event) => onStatusChangeHandler(event, ind)}
-                  >
-                    <option value="">Edit</option>
-                    <option value="Pending">Pending</option>
-                    <option value="InProgress">In-Progress</option>
-                    <option value="Completed">Completed</option>
-                  </select>
-                </td>
-                <td>
-                  <button
-                    value={ind}
-                    onClick={deleteTodoHandler}
-                    className="todoList-deleteButton"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      {(function abc() {
+        if (todoList.length) {
+          return (
+            <table className="todoList-table">
+              <tbody>
+                <tr>
+                  <th>Task</th>
+                  <th>TODO</th>
+                  <th>PER/PRO</th>
+                  <th>Aimed Date</th>
+                  <th>Status</th>
+                  <th>Delete</th>
+                </tr>
+                {todoList?.map((eachTodo, ind) => {
+                  return (
+                    <tr key={ind}>
+                      <td>{ind + 1}</td>
+                      <td>{eachTodo.addTodoValue}</td>
+                      <td>{eachTodo.selectedOption}</td>
+                      <td>
+                        {eachTodo.inputDate}
+
+                        <br></br>
+                        <input
+                          required
+                          type="date"
+                          onChange={(event) => onChangeHandler(event, ind)}
+                          name="inputDate"
+                          id="inputDate"
+                        />
+                      </td>
+                      <td>
+                        {eachTodo.status}
+                        <br></br>
+                        <select
+                          name="status"
+                          id="selectedOption"
+                          onChange={(event) => onChangeHandler(event, ind)}
+                        >
+                          <option value="">Edit</option>
+                          <option value="Pending">Pending</option>
+                          <option value="InProgress">In-Progress</option>
+                          <option value="Completed">Completed</option>
+                        </select>
+                      </td>
+                      <td>
+                        <button
+                          value={ind}
+                          onClick={deleteTodoHandler}
+                          className="todoList-deleteButton"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          );
+        }
+      })()}
     </div>
   );
 }

@@ -1,12 +1,26 @@
 import "./App.css";
 import TodoList from "./components/TodoList";
 import AddTodo from "./components/AddTodo";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const MyContext = createContext();
 
 function App() {
   const [todoList, setTodoList] = useState([]);
+
+  useEffect(() => {
+    if (todoList.length) {
+      localStorage.setItem("todoList", JSON.stringify(todoList));
+    }
+  }, [todoList]);
+
+  useEffect(() => {
+    const storedTodoList = JSON.parse(localStorage.getItem("todoList"));
+    console.log(storedTodoList);
+    if (storedTodoList.length) {
+      setTodoList(storedTodoList);
+    }
+  }, []);
 
   return (
     <MyContext.Provider value={{ todoList, setTodoList }}>
